@@ -1,3 +1,8 @@
+"scripts": {
+  "start": "expo start",
+  "android": "expo start --android",
+  "ios": "expo start --ios"
+}
 {
   "name": "template-app-53",
   "version": "1.0.0",
