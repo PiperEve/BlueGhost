@@ -1,1 +1,11 @@
-
+{
+  "privacy": {
+    "tracking": false,
+    "analytics": false,
+    "crashReporting": false,
+    "locationTracking": false,
+    "advertising": false,
+    "dataCollection": "minimal",
+    "policy": "Blue Ghost is designed for complete privacy. We do not track users, collect location data, access contacts, monitor fitness activity, or share personal information. The only data stored is your anonymous posts which automatically delete after 24 hours. No permanent user profiles, no tracking, no surveillance."
+  }
+}

@@ -1,0 +1,96 @@
+// src/components/MusicSelector.tsx
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { Audio } from 'expo-av';
+import musicSamples from '../constants/musicSamples';
+import { MaterialIcons } from '@expo/vector-icons';
+export default function MusicSelector() {
+const [selectedId, setSelectedId] = useState<string | null>(null);
+const [sound, setSound] = useState<Audio.Sound | null>(null);
+const [isPlaying, setIsPlaying] = useState(false);
+// Cleanup sound on unmount
+useEffect(() => {
+return () => {
+if (sound) {
+sound.unloadAsync();
+}
+};
+}, [sound]);
+const playSample = async (id: string) => {
+try {
+// Stop currently playing sample
+if (sound) {
+await sound.stopAsync();
+setIsPlaying(false);
+}
+// Load new sample
+const sample = musicSamples.find(m => m.id === id);
+if (!sample) return;
+const { sound: newSound } = await Audio.Sound.createAsync(
+{ uri: `asset:/music/${id}.mp3` },
+{ shouldPlay: true }
+);
+setSound(newSound);
+setSelectedId(id);
+setIsPlaying(true);
+// Auto-stop after 15 seconds
+setTimeout(async () => {
+if (newSound) {
+await newSound.stopAsync();
+setIsPlaying(false);
+}
+}, 15000);
+} catch (error) {
+console.error('Error playing sample', error);
+}
+};
+const togglePlayback = async () => {
+if (!sound) return;
+if (isPlaying) {
+await sound.pauseAsync();
+} else {
+await sound.playAsync();
+}
+setIsPlaying(!isPlaying);
+};
+const formatSize = (bytes: number) => {
+if (bytes < 1024) return `${bytes} bytes`;
+if (bytes < 1048576) return `${(bytes / 1024).toFixed(1)} KB`;
+return `${(bytes / 1048576).toFixed(1)} MB`;
+};
+return (
+<View className="p-4">
+<FlatList
+data={musicSamples}
+keyExtractor={item => item.id}
+renderItem={({ item }) => (
+<TouchableOpacity
+className={`p-4 mb-3 rounded-lg flex-row justify-between items-center ${
+selectedId === item.id ? 'bg-blue-100 border border-blue-500' : 'bg-gray-50'
+}`}
+>
+onPress={() => playSample(item.id)}
+<View className="flex-1">
+<Text className="font-bold text-lg">{item.name}</Text>
+<Text className="text-gray-600">
+{formatSize(item.size)} • {item.mood} • {item.bpm} BPM
+</Text>
+</View>
+{selectedId === item.id && (
+<TouchableOpacity onPress={togglePlayback}>
+<MaterialIcons
+name={isPlaying ? "pause" : "play-arrow"}
+size={28}
+color="#3b82f6"
+/>
+</TouchableOpacity>
+)}
+</TouchableOpacity>
+)}
+/>
+<Text className="text-center text-gray-500 mt-4">
+AI-generated samples from Vibecode
+</Text>
+</View>
+);
+}
