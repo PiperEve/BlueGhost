@@ -7,8 +7,6 @@ export default function App() {
       <Text style={styles.title}>BaseGhost</Text>
       <Text style={styles.subtitle}>Remote</Text>
       <Text style={styles.text}>
-       // App.js ends up including centered blocks while blocks outside screen are excluded.
-      //  Blocks at the edges are pending your decision.
       </Text>
     </View>
   );
