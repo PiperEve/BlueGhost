@@ -1,9 +1,5 @@
-"scripts": {
-	"start": "expo start",
-	"android": "expo start --android",
-	"ios": "expo start --ios",
-	"start": "expo start"
-} {
+
+{
 	"name": "template-app-53",
 	"version": "1.0.0",
 	"main": "index.ts",
@@ -37,16 +33,14 @@
 		"@shopify/react-native-skia": "v2.0.0-next.4",
 		"clsx": "^2.1.1",
 		"date-fns": "^4.1.0",
-		"expo": "~49.0.0",
 		"expo-av": "~14.0.0",
 		"expo-camera": "~14.0.0",
 		"expo-image-picker": "~14.0.0",
 		"expo-tracking-transparency": "~4.0.0",
 		"react": "18.2.0",
-		"react-native": "0.72.0",
-		"expo": "^49.0.0",
-		"expo": "^53.0.9",
-		"expo - application ": "~6.1 .4 ",
+		"react-native": "0.73.7",
+		"expo": "50.0.0",
+	//	"expo - application ": "~6.1.4 ",
 		"expo-auth-session": "^6.0.3",
 		"expo-av": "~15.1.4",
 		"expo-background-fetch": "~13.1.5",
@@ -100,9 +94,7 @@
 		"nativewind": "^4.1.23",
 		"openai": "^4.89.0",
 		"patch-package": "^8.0.0",
-		"react": "19.0.0",
 		"react-dom": "19.0.0",
-		"react-native": "0.79.2",
 		"react-native-gesture-handler": "~2.24.0",
 		"react-native-get-random-values": "~1.11.0",
 		"react-native-ios-context-menu": "3.1.0",
