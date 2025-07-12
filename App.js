@@ -1,14 +1,15 @@
-// App.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>👻 Blue Ghost</Text>
-      <Text style={styles.subtitle}>Privacy-First Social App</Text>
-      <Text>Camera Ready: {true ? '✅' : '❌'}</Text>
-      <Text>Microphone Ready: {true ? '✅' : '❌'}</Text>
+      <Text style={styles.title}>BaseGhost</Text>
+      <Text style={styles.subtitle}>Remote</Text>
+      <Text style={styles.text}>
+        App.js ends up including centered blocks while blocks outside screen are excluded.
+        Blocks at the edges are pending your decision.
+      </Text>
     </View>
   );
 }
@@ -16,20 +17,29 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f172a',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20
+    padding: 20,
+    backgroundColor: '#0f0c29', // Dark blue background
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#38bdf8',
-    marginBottom: 10
+    color: '#00c9ff', // Light blue
+    marginBottom: 10,
+    textAlign: 'center'
   },
   subtitle: {
-    fontSize: 18,
-    color: '#94a3b8',
-    marginBottom: 30
+    fontSize: 20,
+    color: '#92fe9d', // Light green
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  text: {
+    fontSize: 16,
+    color: '#ffffff', // White
+    lineHeight: 24,
+    textAlign: 'center',
+    maxWidth: '80%'
   }
 });
