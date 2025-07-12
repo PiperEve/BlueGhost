@@ -1,20 +1,15 @@
-"expo": {
-  ...
-  "entryPoint": "./App.js",
-  "android": {
-    "package": "com.blueghost.app"
-  },
-  "ios": {
-    "bundleIdentifier": "com.blueghost.app"
-  }
-}
-
 {
   "expo": {
     "name": "Blue Ghost",
     "slug": "blue-ghost-app",
     "scheme": "blue-ghost",
-	"sdkVersion: "50.0.0",
+	"sdkVersion": "50.0.0",
+	 "entryPoint": "./App.js",
+  "android": {
+    "package": "com.blueghost.app"
+  },
+  "ios": {
+    "bundleIdentifier": "com.blueghost.app"
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
