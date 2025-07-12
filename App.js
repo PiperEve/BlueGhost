@@ -12,8 +12,7 @@ export default function App() {
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Block System</Text>
         <Text style={styles.cardText}>
-          Centered blocks are included while blocks outside screen are excluded.
-          Edge blocks are pending your decision.
+          
         </Text>
       </View>
       
