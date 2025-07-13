@@ -4,7 +4,6 @@
     "slug": "blue-ghost-app",
     "scheme": "blue-ghost",
 	"sdkVersion": "50.0.0",
-	 "entryPoint": "./App.js",
   "android": {
     "package": "com.blueghost.app"
   },
