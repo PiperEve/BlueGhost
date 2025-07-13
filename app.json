@@ -3,12 +3,7 @@
     "name": "Blue Ghost",
     "slug": "blue-ghost-app",
     "scheme": "blue-ghost",
-	"sdkVersion": "50.0.0",
-  "android": {
-    "package": "com.blueghost.app"
-  },
-  "ios": {
-    "bundleIdentifier": "com.blueghost.app"
+    "sdkVersion": "50.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
@@ -19,6 +14,7 @@
       "enabled": false
     },
     "ios": {
+      "bundleIdentifier": "com.blueghost.app",
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Blue Ghost needs camera access to let you take photos for posts. All photos are privacy-protected with AI scanning.",
@@ -42,6 +38,7 @@
       }
     },
     "android": {
+      "package": "com.blueghost.app",
       "edgeToEdgeEnabled": true,
       "permissions": [
         "android.permission.CAMERA",
