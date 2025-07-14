@@ -2,79 +2,138 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <!-- ========== ZERO-DATA DECLARATION ========== -->
-  <key>NSPrivacyDataCollectionProhibited</key>
-  <true/> <!-- 2025 FLAG: FULL DATA COLLECTION OPT-OUT -->
-  
-  <key>NSPrivacyCollectedDataTypes</key>
-  <array>
-    <!-- REQUIRED FOR ALL APPS - EVEN WITH NO DATA COLLECTION -->
-    <dict>
-      <key>NSPrivacyCollectedDataType</key>
-      <string>NSPrivacyCollectedDataTypeEphemeralInstanceID</string>
-      <key>NSPrivacyCollectedDataTypeLinked</key>
-      <false/>
-      <key>NSPrivacyCollectedDataTypeTracking</key>
-      <false/>
-      <key>NSPrivacyCollectedDataTypePurposes</key>
-      <array>
-        <string>DDA7.7</string> <!-- 2025: Ephemeral session requirement -->
-      </array>
-      <key>NSPrivacyCollectedDataTypeLifespan</key>
-      <integer>24</integer> <!-- Hours until auto-deletion -->
-    </dict>
-  </array>
-  
-  <!-- ========== AI INTERACTION DECLARATIONS (2025 REQUIREMENT) ========== -->
-  <key>NSPrivacyAIUsageDescription</key>
-  <string>AI processes anonymous content for ephemeral delivery. No personal data is retained or used for training.</string>
-  
-  <key>NSPrivacyAIDataHandling</key>
-  <dict>
-    <key>ModelSource</key>
-    <string>OnDevice</string>
-    <key>TrainingData</key>
-    <string>None</string>
-    <key>DataRetention</key>
-    <string>ZeroRetention</string>
-  </dict>
-  
-  <!-- ========== QUANTUM RESISTANCE DECLARATION ========== -->
-  <key>NSPrivacyCryptographyStandard</key>
-  <string>PQCrypto2025</string> <!-- Post-Quantum Cryptography -->
-  
-  <!-- ========== API DECLARATIONS ========== -->
-  <key>NSPrivacyAccessedAPITypes</key>
-  <array>
-    <dict>
-      <key>NSPrivacyAccessedAPIType</key>
-      <string>NSPrivacyAccessedAPICategoryEphemeralTimestamps</string>
-      <key>NSPrivacyAccessedAPITypeReasons</key>
-      <array>
-        <string>TD88.5</string> <!-- 2025: Auto-deletion compliance -->
-      </array>
-    </dict>
-  </array>
-  
-  <!-- ========== ZERO-TRACKING DECLARATION ========== -->
-  <key>NSPrivacyTracking</key>
-  <false/>
-  <key>NSPrivacyTrackingDomains</key>
-  <array/>
-  
-  <!-- ========== NEUROPRIVACY DECLARATION ========== -->
-  <key>NSPrivacyNeuroDataPolicy</key>
-  <dict>
-    <key>Biosensing</key>
-    <false/>
-    <key>CognitivePatterns</key>
-    <false/>
-    <key>EmotionDetection</key>
-    <false/>
-  </dict>
-  
-  <!-- ========== EXPLANATORY SECTION ========== -->
-  <key>NSPrivacyAdditionalExplanation</key>
-  <string>BlueGhost 2025: Zero-data architecture. All content vanishes within 24 hours. No biometrics. No tracking. Quantum-secure.</string>
+<!-- ========== ZERO-DATA DECLARATION ========== -->
+<key>NSPrivacyDataCollectionProhibited</key>
+<true/> <!-- 2025 FLAG: FULL DATA COLLECTION OPT-OUT -->
+<key>NSPrivacyCollectedDataTypes</key>
+<array>
+<!-- REQUIRED FOR ALL APPS - EVEN WITH NO DATA COLLECTION -->
+<dict>
+<key>NSPrivacyCollectedDataType</key>
+<string>NSPrivacyCollectedDataTypeEphemeralInstanceID</string>
+<key>NSPrivacyCollectedDataTypeLinked</key>
+<false/>
+<key>NSPrivacyCollectedDataTypeTracking</key>
+<false/>
+<key>NSPrivacyCollectedDataTypePurposes</key>
+<array>
+<string>DDA7.7</string> <!-- 2025: Ephemeral session requirement -->
+</array>
+<key>NSPrivacyCollectedDataTypeLifespan</key>
+<integer>24</integer> <!-- Hours until auto-deletion -->
+</dict>
+</array>
+<!-- ========== AI INTERACTION DECLARATIONS (2025 REQUIREMENT) ========== -->
+<key>NSPrivacyAIUsageDescription</key>
+<string>AI processes anonymous content for ephemeral delivery. No personal data is retained or used for training.</
+string>
+<key>NSPrivacyAIDataHandling</key>
+<dict>
+<key>ModelSource</key>
+<string>OnDevice</string>
+<key>TrainingData</key>
+<string>None</string>
+<key>DataRetention</key>
+<string>ZeroRetention</string>
+</dict>
+<!-- ========== QUANTUM RESISTANCE DECLARATION ========== -->
+<key>NSPrivacyAccessedAPITypes</key>
+<array>
+<dict>
+<key>NSPrivacyAccessedAPIType</key>
+<string>NSPrivacyAccessedAPICategoryEphemeralTimestamps</string>
+<key>NSPrivacyAccessedAPITypeReasons</key>
+<array>
+<string>TD88.5</string> <!-- 2025: Auto-deletion compliance -->
+</array>
+</dict>
+</array>
+<!-- ========== ZERO-TRACKING DECLARATION ========== -->
+<key>NSPrivacyTracking</key>
+<false/>
+<key>NSPrivacyTrackingDomains</key>
+<array/>
+<!-- ========== NEUROPRIVACY DECLARATION ========== -->
+<key>NSPrivacyNeuroDataPolicy</key>
+<dict>
+<key>Biosensing</key>
+<false/>
+<key>CognitivePatterns</key>
+<false/>
+<key>EmotionDetection</key>
+<false/>
+</dict>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<!-- ========== ZERO-DATA DECLARATION ========== -->
+<key>NSPrivacyDataCollectionProhibited</key>
+<true/> <!-- 2025 FLAG: FULL DATA COLLECTION OPT-OUT -->
+<key>NSPrivacyCollectedDataTypes</key>
+<array>
+<!-- REQUIRED FOR ALL APPS - EVEN WITH NO DATA COLLECTION -->
+<dict>
+<key>NSPrivacyCollectedDataType</key>
+<string>NSPrivacyCollectedDataTypeEphemeralInstanceID</string>
+<key>NSPrivacyCollectedDataTypeLinked</key>
+<false/>
+<key>NSPrivacyCollectedDataTypeTracking</key>
+<false/>
+<key>NSPrivacyCollectedDataTypePurposes</key>
+<array>
+<string>DDA7.7</string> <!-- 2025: Ephemeral session requirement -->
+</array>
+<key>NSPrivacyCollectedDataTypeLifespan</key>
+<integer>24</integer> <!-- Hours until auto-deletion -->
+</dict>
+</array>
+<!-- ========== AI INTERACTION DECLARATIONS (2025 REQUIREMENT) ========== -->
+<key>NSPrivacyAIUsageDescription</key>
+<string>AI processes anonymous content for ephemeral delivery. No personal data is retained or used for training.</
+string>
+<key>NSPrivacyAIDataHandling</key>
+<dict>
+<key>ModelSource</key>
+<string>OnDevice</string>
+<key>TrainingData</key>
+<string>None</string>
+<key>DataRetention</key>
+<string>ZeroRetention</string>
+</dict>
+<!-- ========== QUANTUM RESISTANCE DECLARATION ========== -->
+<key>NSPrivacyCryptographyStandard</key>
+<string>PQCrypto2025</string> <!-- Post-Quantum Cryptography -->
+<!-- ========== API DECLARATIONS ========== -->
+<key>NSPrivacyAccessedAPITypes</key>
+<array>
+<dict>
+<key>NSPrivacyAccessedAPIType</key>
+<string>NSPrivacyAccessedAPICategoryEphemeralTimestamps</string>
+<key>NSPrivacyAccessedAPITypeReasons</key>
+<array>
+<string>TD88.5</string> <!-- 2025: Auto-deletion compliance -->
+</array>
+</dict>
+</array>
+<!-- ========== ZERO-TRACKING DECLARATION ========== -->
+<key>NSPrivacyTracking</key>
+<false/>
+<key>NSPrivacyTrackingDomains</key>
+<array/>
+<!-- ========== NEUROPRIVACY DECLARATION ========== -->
+<key>NSPrivacyNeuroDataPolicy</key>
+<dict>
+<key>Biosensing</key>
+<false/>
+<key>CognitivePatterns</key>
+<false/>
+<key>EmotionDetection</key>
+<false/>
+</dict>
+<!-- ========== EXPLANATORY SECTION ========== -->
+<key>NSPrivacyAdditionalExplanation</key>
+<string>BlueGhost 2025: Zero-data architecture. All content vanishes within 24 hours. No biometrics. No tracking.
+Quantum-secure.</string>
 </dict>
 </plist>
