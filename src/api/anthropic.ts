@@ -17,4 +17,3 @@ export const getAnthropicClient = () => {
   return new Anthropic({
     apiKey: apiKey,
   });
-};
