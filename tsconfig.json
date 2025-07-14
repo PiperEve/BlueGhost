@@ -10,7 +10,7 @@
 			"@navigation/*": ["src/navigation/*"],
 			"@state/*": ["src/state/*"],
 			"@types/*": ["src/types/*"],
-			"@utils/*": ["src/utils/*"]
+			"@utils/*": ["src/utils/*"],
 		}
 	}
 }
