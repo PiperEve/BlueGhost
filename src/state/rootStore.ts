@@ -1,25 +1,19 @@
-// src/state/rootStore.ts
+// This is an example of a Zustand store, use this for async storage.
+// DO NOTE USE THIS FILE, create new ones in the state folder.
+
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-interface RootStore {
-  lastMonthlyReset: string;
-  appLaunchCount: number;
-  setLastResetDate: (date: string) => void;
-  incrementLaunchCount: () => void;
-}
+interface RootStore {}
 
-export const useRootStore = create<RootStore>()(
+// Make sure to persist the store using the persist middleware.
+const useRootStore = create<RootStore>()(
   persist(
     (set, get) => ({
-      lastMonthlyReset: new Date().toISOString().slice(0, 7), // "2025-07"
-      appLaunchCount: 0,
-      
-      setLastResetDate: (date) => set({ lastMonthlyReset: date }),
-      
-      incrementLaunchCount: () => 
-        set(state => ({ appLaunchCount: state.appLaunchCount + 1 })),
+      // add your Zustand store here
+      // someData: 0,
+      // addSomeData: () => set({ someData: get().someData + 1 }),
     }),
     {
       name: "root-storage",
@@ -27,15 +21,3 @@ export const useRootStore = create<RootStore>()(
     },
   ),
 );
-
-// Monthly reset helper
-export const checkMonthlyReset = () => {
-  const currentMonth = new Date().toISOString().slice(0, 7);
-  const rootStore = useRootStore.getState();
-  
-  if (rootStore.lastMonthlyReset !== currentMonth) {
-    // Trigger reset in all stores that need monthly resets
-    useRewindStore.getState().resetMonthlyRewinds();
-    rootStore.setLastResetDate(currentMonth);
-  }
-};
