@@ -82,20 +82,26 @@ export default function CreatePostScreen({ navigation }: CreatePostScreenProps) 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shouldFadeMusic, setShouldFadeMusic] = useState(false);
 
-  // Content moderation filters
-  const blockedWords = [
-    'hate', 'kill', 'die', 'murder', 'suicide', 'racist', 'nazi', 'terrorist',
-    'sexual', 'porn', 'nude', 'naked', 'sex', 'fuck', 'shit', 'damn',
-    'trump', 'biden', 'politics', 'election', 'vote', 'democrat', 'republican',
-    'jesus', 'god', 'allah', 'muslim', 'christian', 'jew', 'religion',
-    'child', 'kid', 'minor', 'baby', 'teen'
+  // Content moderation filters, paths may vary
+  import { getContentWarnings, getSoftModerationMessage } from ,../utils/postHelp';
+   
   ];
 
-  const containsBlockedContent = (text: string): boolean => {
-    const lowerText = text.toLowerCase();
-    return blockedWords.some(word => lowerText.includes(word));
-  };
-
+  const warnings = getContentWarnings(content);
+  if (warning.length > 0) { 
+    Alert.alert(
+      '⚠️ Trigger Warning?', 
+    getSoftModerationMessage(warnings),
+    [ 
+      { text:'Add Warning', onPress: () => setSelectedTheme(warnings[0]) }, 
+      { text:'Post Anyway', onPress: () => finalizePost() },
+      { text:'Edit', style: 'cancel'},
+     ]  
+    };
+   return;
+  }
+  
+  
   const handleSubmit = async () => {
     if (postType === 'text' && !content.trim()) {
       Alert.alert('Empty Post', 'Please write something to share!');
@@ -133,7 +139,10 @@ export default function CreatePostScreen({ navigation }: CreatePostScreenProps) 
 
     setIsSubmitting(true);
     setShouldFadeMusic(true); // Start fading out lo-fi music
-
+    
+const finalizePost= async () => {
+   setIsSubmitting(true);
+   setShouldFadeMusic(true);
     try {
       addPost({
         userId: user!.id,
