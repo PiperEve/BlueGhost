@@ -39,8 +39,40 @@ export const ventThemes = [
   { id: 'love', name: 'Love' },
   // extend as needed
 ];
+// BLOCKED WORDS (content moderation)
+export const softBlockedWords = [
+  { word: 'suicide', tag: '#MentalHealth' },
+  { word: 'die', tag: '#Grief' },
+  { word: 'god', tag: '#Spirituality' },
+  { word: 'trump', tag: '#Politics' },
+  { word: 'kill', tag: '#Violence' },
+  { word: 'anxiety', tag: '#Anxiety' },
+  { word: 'sex', tag: '#AdultThemes' },
+  { word: 'hate', tag: '#StrongFeelings' },
+];
+
+export function getContentWarnings(text: string): string[] {
+  const warnings: string[] = [];
+  const lower = text.toLowerCase();
+  softBlockedWords.forEach(({ word, tag }) => {
+    if (lower.includes(word)) {
+      warnings.push(tag);
+    }
+  });
+  return [...new Set(warnings)];
+}
+
+export function shouldShowSoftWarning(text: string): boolean {
+  return getContentWarnings(text).length > 0;
+}
+
+export function getSoftModerationMessage(warnings: string[]): string {
+  return `Your post includes sensitive topics like: ${warnings.join(', ')}.\nWould you like to add a trigger warning or post as is?`;
+}
 
 // IMAGE UTILS
+import * as ImageManipulator from 'expo-image-manipulator';
+
 export const blurSensitiveAreas = async (imageUri: string): Promise<string> => {
   try {
     const result = await ImageManipulator.manipulateAsync(
@@ -55,17 +87,5 @@ export const blurSensitiveAreas = async (imageUri: string): Promise<string> => {
   }
 };
 
-// BLOCKED WORDS (content moderation)
-export const blockedWords = [
-  'hate', 'kill', 'die', 'murder', 'suicide', 'racist', 'nazi', 'terrorist',
-  'sexual', 'porn', 'nude', 'naked', 'sex', 'fuck', 'shit', 'damn',
-  'trump', 'biden', 'politics', 'election', 'vote', 'democrat', 'republican',
-  'jesus', 'god', 'allah', 'muslim', 'christian', 'jew', 'religion',
-  'child', 'kid', 'minor', 'baby', 'teen'
-];
 
-export const containsBlockedContent = (text: string): boolean => {
-  const lowerText = text.toLowerCase();
-  return blockedWords.some(word => lowerText.includes(word));
-};
 // Add other helpers here later, e.g. content moderation filters, validation, etc.
