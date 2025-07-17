@@ -1,4 +1,5 @@
 import { Post, usePostStore } from '../state/postStore';
+import { generateUniqueId } from './helpers';
 
 const samplePosts: Omit<Post, 'id' | 'createdAt' | 'expiresAt'>[] = [
   {
@@ -68,18 +69,24 @@ const samplePosts: Omit<Post, 'id' | 'createdAt' | 'expiresAt'>[] = [
     dislikes: 3,
     isInBattle: false,
     ventTheme: 'anxiety',
-  }
+  },
 ];
 
-export const addSamplePosts = () => {
+export function addSamplePosts() {
   const { posts, addPost } = usePostStore.getState();
-  
-  // Only add sample posts if there are no existing posts
+
   if (posts.length === 0) {
-    samplePosts.forEach(postData => {
-      addPost(postData);
+    const now = Date.now();
+
+    samplePosts.forEach((postData) => {
+      addPost({
+        ...postData,
+        id: generateUniqueId(),
+        createdAt: now,
+        expiresAt: now + 24 * 60 * 60 * 1000, // 24 hours from now
+      });
     });
   }
-};
+}
 
 export default samplePosts;

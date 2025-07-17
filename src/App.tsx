@@ -32,10 +32,20 @@ export default function App() {
   const { cleanExpiredContent } = usePostStore();
 
   // Clean expired content on app launch and add sample posts
-  useEffect(() => {
+  useEffect(() => { 
     // Add sample posts first
-    addSamplePosts();
-    
+    await addSamplePosts(); // If async
+	const cleanupTimeout = setTimeout(() => cleanExpiredContent(), 100);
+	const interval = setInterval(() => cleanExpiredContent(), 5 * 60 * 1000)    
+	
+	return () => { 
+	  clearTimeout(cleanupTimeout);
+	  clearInterval(interval);
+	};
+  };
+  intiApp();
+ }, []);
+
     // Clean expired content after a short delay to avoid render loops
     const cleanupTimeout = setTimeout(() => {
       cleanExpiredContent();
